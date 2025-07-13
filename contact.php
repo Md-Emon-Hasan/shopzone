@@ -16,9 +16,6 @@ if (isset($_POST['send_message'])) {
         echo json_encode(['status' => 'error', 'message' => 'Invalid email address']);
         exit;
     }
-
-    // In a real application, you would send an email here
-    // For this example, we'll just simulate success
     
     echo json_encode(['status' => 'success', 'message' => 'Message sent successfully! We will get back to you soon.']);
 }

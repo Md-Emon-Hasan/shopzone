@@ -9,212 +9,11 @@ require_once 'config.php';
     <title>ShopZone - Professional E-commerce</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <style>
-        /* (Keep all your existing CSS styles) */
-        :root {
-            --primary-color: #007bff;
-            --secondary-color: #6c757d;
-            --success-color: #28a745;
-            --danger-color: #dc3545;
-            --warning-color: #ffc107;
-            --info-color: #17a2b8;
-            --light-color: #f8f9fa;
-            --dark-color: #343a40;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-        }
-
-        .navbar-brand {
-            font-weight: bold;
-            font-size: 1.5rem;
-        }
-
-        .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 100px 0;
-            text-align: center;
-        }
-
-        .card {
-            border: none;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .product-card {
-            margin-bottom: 30px;
-        }
-
-        .product-image {
-            height: 200px;
-            object-fit: cover;
-            width: 100%;
-        }
-
-        .price {
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--success-color);
-        }
-
-        .original-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 0.9rem;
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background: var(--danger-color);
-            color: white;
-            border-radius: 50%;
-            padding: 2px 6px;
-            font-size: 0.8rem;
-        }
-
-        .sidebar {
-            background: var(--light-color);
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
-        }
-
-        .filter-section {
-            margin-bottom: 20px;
-        }
-
-        .filter-section h6 {
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .btn-outline-primary:hover {
-            background-color: var(--primary-color);
-            border-color: var(--primary-color);
-        }
-
-        .footer {
-            background: var(--dark-color);
-            color: white;
-            padding: 40px 0;
-            margin-top: 50px;
-        }
-
-        .page-section {
-            display: none;
-        }
-
-        .page-section.active {
-            display: block;
-        }
-
-        .modal-header {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        .range-slider {
-            width: 100%;
-            margin: 10px 0;
-        }
-
-        .cart-item {
-            border-bottom: 1px solid #eee;
-            padding: 15px 0;
-        }
-
-        .cart-item:last-child {
-            border-bottom: none;
-        }
-
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .quantity-btn {
-            width: 30px;
-            height: 30px;
-            border: 1px solid #ddd;
-            background: white;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .quantity-input {
-            width: 50px;
-            text-align: center;
-            border: 1px solid #ddd;
-            padding: 5px;
-        }
-
-        .category-filter {
-            margin-bottom: 10px;
-        }
-
-        .category-filter input[type="checkbox"] {
-            margin-right: 8px;
-        }
-
-        .search-bar {
-            margin-bottom: 20px;
-        }
-
-        .user-menu {
-            position: relative;
-        }
-
-        .user-dropdown {
-            position: absolute;
-            top: 100%;
-            right: 0;
-            background: white;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            min-width: 200px;
-            z-index: 1000;
-            display: none;
-        }
-
-        .user-dropdown.show {
-            display: block;
-        }
-
-        .user-dropdown a {
-            display: block;
-            padding: 10px 15px;
-            text-decoration: none;
-            color: #333;
-            border-bottom: 1px solid #eee;
-        }
-
-        .user-dropdown a:hover {
-            background: var(--light-color);
-        }
-
-        .alert {
-            margin-bottom: 20px;
-        }
-    </style>
+    <link href="assets/css/styles.css" rel="stylesheet">
 </head>
-<body>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
         <div class="container">
             <a class="navbar-brand" href="#" onclick="showSection('home')">
                 <i class="fas fa-store"></i> ShopZone
@@ -267,25 +66,26 @@ require_once 'config.php';
             </div>
         </div>
     </nav>
-    <!-- Navigation (Keep your existing navigation HTML) -->
     
     <!-- Alert Container -->
     <div id="alert-container"></div>
     
     <!-- Home Section -->
     <div id="home" class="page-section active">
-        <div class="hero-section">
-            <div class="container">
-                <h1 class="display-4">Welcome to ShopZone</h1>
-                <p class="lead">Discover amazing products at unbeatable prices</p>
-                <a href="#" class="btn btn-light btn-lg" onclick="showSection('products')">Shop Now</a>
+        <div class="hero-section" style="background-image: url('assets/images/hero-bg.jpg');">
+            <div class="hero-content">
+                <div class="container">
+                    <h1 class="display-4">Welcome to ShopZone</h1>
+                    <p class="lead">Discover amazing products at unbeatable prices</p>
+                    <a href="#" class="btn btn-light btn-lg" onclick="showSection('products')">Shop Now</a>
+                </div>
             </div>
         </div>
 
         <div class="container my-5">
             <div class="row">
                 <div class="col-md-12">
-                    <h2 class="text-center mb-4">Featured Products</h2>
+                    <h2 class="text-center mb-4">Our Featured Products</h2>
                     <div class="row" id="featured-products">
                         <!-- Featured products will be loaded here -->
                     </div>
@@ -313,10 +113,10 @@ require_once 'config.php';
                         <div class="filter-section">
                             <h6>Price Range</h6>
                             <div class="mb-2">
-                                <input type="range" class="form-range" min="0" max="100000" value="1000" id="price-range">
+                                <input type="range" class="form-range" min="0" max="60000" value="1000" id="price-range">
                                 <div class="d-flex justify-content-between">
                                     <span>৳0</span>
-                                    <span id="price-display">৳100000</span>
+                                    <span id="price-display">৳60000</span>
                                 </div>
                             </div>
                         </div>
@@ -487,9 +287,7 @@ require_once 'config.php';
             </div>
         </div>
     </div>
-    <!-- All your page sections (Keep your existing HTML structure) -->
     
-    <!-- Your modals (Keep your existing modal HTML) -->
     <!-- Login Modal -->
     <div class="modal fade" id="loginModal" tabindex="-1">
         <div class="modal-dialog">
@@ -547,8 +345,6 @@ require_once 'config.php';
             </div>
         </div>
     </div>
-    
-    <!-- Footer (Keep your existing footer HTML) -->
 
     <!-- Footer -->
     <footer class="footer">
